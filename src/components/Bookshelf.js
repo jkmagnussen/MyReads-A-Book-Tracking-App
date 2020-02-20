@@ -24,6 +24,10 @@ const Bookshelf = props => {
               </li>
             ))}
         </ol>
+        <img
+          className="profile-image"
+          src={require("../Media/207-2075695_wooden-shelf-png.png")}
+        />
       </div>
     </div>
   );
