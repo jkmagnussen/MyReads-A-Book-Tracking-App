@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 import * as BooksAPI from "../BooksAPI";
 
 const Book = props => {
-  const { title, authors, imageUrl, book, setBooks, books } = props;
+  const {
+    title,
+    authors,
+    imageUrl,
+    book,
+    setBooks,
+    isSearching,
+    bookshelf
+  } = props;
 
   const handleShelfChange = event => {
     if (event.target.value !== "move") {
@@ -12,6 +20,12 @@ const Book = props => {
           setBooks(newBooks);
         })
       );
+    }
+  };
+
+  const handleShelfChangeInSearch = event => {
+    if (event.target.value !== "move") {
+      BooksAPI.update(book, event.target.value);
     }
   };
 
@@ -27,7 +41,16 @@ const Book = props => {
           }}
         ></div>
         <div className="book-shelf-changer">
-          <select onChange={event => handleShelfChange(event)}>
+          <select
+            onChange={event => {
+              if (!isSearching) {
+                handleShelfChange(event);
+              } else {
+                handleShelfChangeInSearch(event);
+              }
+            }}
+            defaultValue={bookshelf !== undefined ? bookshelf : "none"}
+          >
             <option value="move" disabled>
               Move to...
             </option>
@@ -39,7 +62,9 @@ const Book = props => {
         </div>
       </div>
       <div className="book-title">{title}</div>
-      <div className="book-authors">{authors.map(author => `${author},`)}</div>
+      <div className="book-authors">
+        {authors && authors.map(author => `${author},`)}
+      </div>
     </div>
   );
 };

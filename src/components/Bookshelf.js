@@ -2,6 +2,8 @@ import React from "react";
 
 import Book from "./Book";
 
+import WoodenShelfImage from "../Media/207-2075695_wooden-shelf-png.png";
+
 const Bookshelf = props => {
   const { books, title, setBooks } = props;
 
@@ -16,9 +18,9 @@ const Bookshelf = props => {
                 <Book
                   title={book.title}
                   authors={book.authors}
-                  imageUrl={book.imageLinks.thumbnail}
+                  imageUrl={book.imageLinks && book.imageLinks.thumbnail}
+                  bookshelf={book.shelf}
                   book={book}
-                  books={books}
                   setBooks={setBooks}
                 />
               </li>
@@ -26,7 +28,8 @@ const Bookshelf = props => {
         </ol>
         <img
           className="profile-image"
-          src={require("../Media/207-2075695_wooden-shelf-png.png")}
+          src={WoodenShelfImage}
+          alt="WoodenShelf"
         />
       </div>
     </div>
