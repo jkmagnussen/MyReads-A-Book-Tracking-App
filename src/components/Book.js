@@ -1,5 +1,4 @@
 import React from "react";
-
 import * as BooksAPI from "../BooksAPI";
 
 const Book = props => {
