@@ -8,7 +8,7 @@ import * as BooksAPI from "../BooksAPI";
 
 const Search = props => {
   const [searchText, setSearchText] = useState("");
-  const [searchedBooks, setSearchedBooks] = useState([]);
+  const [searchedBooks, setSearchedBooks, book] = useState([]);
   const history = useHistory();
 
   const handleSubmit = event => {
@@ -16,15 +16,29 @@ const Search = props => {
     if (searchText.length !== 0) {
       BooksAPI.search(searchText).then(books => {
         console.log(books);
+        console.log(book);
         if (!books.error) {
           setSearchedBooks(books);
         } else {
           setSearchedBooks([]);
         }
       });
-    } else {
-      setSearchedBooks([]);
     }
+  };
+
+  // Attempt at search - bookshelf comparison
+
+  const setDefaultShelves = (books, book) => {
+    return books.map(book => {
+      books.shelf = "none";
+      books.forEach(books => {
+        if (books.id === book.id) {
+          /* TODO: set the book shelf to the same shelf of myBook*/
+          books.bookshelf = book.bookshelf;
+        }
+      });
+      return book;
+    });
   };
 
   return (
