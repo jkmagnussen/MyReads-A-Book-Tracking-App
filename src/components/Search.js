@@ -13,7 +13,6 @@ const Search = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-
     if (searchText.length !== 0) {
       BooksAPI.search(searchText).then(books => {
         console.log(books);
@@ -56,6 +55,7 @@ const Search = props => {
                 bookshelf={book.shelf}
                 book={book}
                 isSearching
+                setDefaultShelves
               />
             ))}
         </ol>
