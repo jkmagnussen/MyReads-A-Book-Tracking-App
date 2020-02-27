@@ -10,8 +10,7 @@ body {
 
 body,
 .app {
-  background: white;
-  background-image: url("./Media/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
+  background: rgba(161, 161, 161, 0.027);
   background-size: cover;
   background-position: center center;
   background-size: cover;
@@ -25,7 +24,7 @@ body,
 
 .list-books-title {
   padding: 10px 0;
-  background-color: rgba(67, 141, 67, 0.747);
+  background-color: rgb(67, 141, 67, 0.747);
   text-align: center;
 }
 
