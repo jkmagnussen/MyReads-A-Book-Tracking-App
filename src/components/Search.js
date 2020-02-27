@@ -26,7 +26,7 @@ const Search = props => {
     }
   };
 
-  // Attempt at search - bookshelf comparison
+  // Attempt at search - bookshelf comparison 1
 
   const setDefaultShelves = (books, book) => {
     return books.map(book => {
