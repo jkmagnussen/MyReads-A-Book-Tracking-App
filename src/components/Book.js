@@ -27,7 +27,6 @@ const Book = props => {
       BooksAPI.update(book, event.target.value);
     }
   };
-  console.log(book);
 
   return (
     <div className="book">

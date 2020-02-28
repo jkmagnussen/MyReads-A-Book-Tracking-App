@@ -8,15 +8,13 @@ import * as BooksAPI from "../BooksAPI";
 
 const Search = props => {
   const [searchText, setSearchText] = useState("");
-  const [searchedBooks, setSearchedBooks, book] = useState([]);
+  const [searchedBooks, setSearchedBooks, myBooks] = useState([]);
   const history = useHistory();
 
   const handleSubmit = event => {
     event.preventDefault();
     if (searchText.length !== 0) {
       BooksAPI.search(searchText).then(books => {
-        console.log(books);
-        console.log(book);
         if (!books.error) {
           setSearchedBooks(books);
         } else {
@@ -26,16 +24,17 @@ const Search = props => {
     }
   };
 
-  // Attempt at search - bookshelf comparison 1
+  // Comparrison attempt
 
-  const setDefaultShelves = (books, book) => {
-    return books.map(book => {
-      books.shelf = "none";
-      books.forEach(books => {
-        if (books.id === book.id) {
-          /* TODO: set the book shelf to the same shelf of myBook*/
-          books.bookshelf = book.bookshelf;
+  const setDefaultShelves = (searchedBooks, myBooks) => {
+    return searchedBooks.map(book => {
+      console.log("---> Looping over book item of searchedBooks: ", book);
+      myBooks.forEach(myBook => {
+        if (myBook.id === searchedBooks.id) {
+          console.log(book);
         }
+        console.log("Looping over book item of myBooks: ", myBook);
+        setSearchedBooks(book);
       });
       return book;
     });
@@ -62,6 +61,7 @@ const Search = props => {
           {searchedBooks &&
             searchedBooks.map((book, index) => (
               <Book
+                setDefaultShelves
                 key={index}
                 title={book.title}
                 authors={book.authors}
@@ -69,7 +69,8 @@ const Search = props => {
                 bookshelf={book.shelf}
                 book={book}
                 isSearching
-                setDefaultShelves
+                searchBooks={searchedBooks}
+                myBooks={myBooks}
               />
             ))}
         </ol>
