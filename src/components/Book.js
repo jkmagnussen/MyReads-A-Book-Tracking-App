@@ -48,7 +48,7 @@ const Book = props => {
                 handleShelfChangeInSearch(event);
               }
             }}
-            defaultValue={bookshelf !== undefined ? bookshelf : "none"}
+            defaultValue={bookshelf}
           >
             <option value="move" disabled>
               Move to...

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 
@@ -8,15 +8,16 @@ import * as BooksAPI from "../BooksAPI";
 
 const Search = props => {
   const [searchText, setSearchText] = useState("");
-  const [searchedBooks, setSearchedBooks, myBooks] = useState([]);
+  const [searchedBooks, setSearchedBooks] = useState([]);
   const history = useHistory();
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleSearchTextChange = event => {
     if (searchText.length !== 0) {
-      BooksAPI.search(searchText).then(books => {
-        if (!books.error) {
-          setSearchedBooks(books);
+      BooksAPI.search(searchText).then(searchedBooks => {
+        if (!searchedBooks.error) {
+          BooksAPI.getAll().then(myBooks => {
+            setSearchedBooks(setDefaultShelves(searchedBooks, myBooks));
+          });
         } else {
           setSearchedBooks([]);
         }
@@ -24,21 +25,21 @@ const Search = props => {
     }
   };
 
-  // Comparrison attempt
-
-  const setDefaultShelves = (searchedBooks, myBooks) => {
-    return searchedBooks.map(book => {
-      console.log("---> Looping over book item of searchedBooks: ", book);
-      myBooks.forEach(myBook => {
-        if (myBook.id === searchedBooks.id) {
-          console.log(book);
+  const setDefaultShelves = (searchedBooksLocal, myBooks) => {
+    return searchedBooksLocal.map(book => {
+      for (let i = 0; i < myBooks.length; i++) {
+        if (myBooks[i].id === book.id) {
+          return { ...book, shelf: myBooks[i].shelf };
         }
-        console.log("Looping over book item of myBooks: ", myBook);
-        setSearchedBooks(book);
-      });
-      return book;
+      }
+
+      return { ...book, shelf: "none" };
     });
   };
+
+  useEffect(() => {
+    handleSearchTextChange();
+  }, [searchText]);
 
   return (
     <div className="search-books">
@@ -47,13 +48,11 @@ const Search = props => {
           Close
         </button>
         <div className="search-books-input-wrapper">
-          <form onSubmit={event => handleSubmit(event)}>
-            <input
-              type="text"
-              placeholder="Search by title or author"
-              onChange={event => setSearchText(event.target.value)}
-            />
-          </form>
+          <input
+            type="text"
+            placeholder="Search by title or author"
+            onChange={event => setSearchText(event.target.value)}
+          />
         </div>
       </div>
       <div className="search-books-results">
@@ -61,7 +60,6 @@ const Search = props => {
           {searchedBooks &&
             searchedBooks.map((book, index) => (
               <Book
-                setDefaultShelves
                 key={index}
                 title={book.title}
                 authors={book.authors}
@@ -69,8 +67,6 @@ const Search = props => {
                 bookshelf={book.shelf}
                 book={book}
                 isSearching
-                searchBooks={searchedBooks}
-                myBooks={myBooks}
               />
             ))}
         </ol>
