@@ -22,6 +22,8 @@ const Search = props => {
           setSearchedBooks([]);
         }
       });
+    } else if (searchText.length === 0) {
+      setSearchedBooks([]);
     }
   };
 
@@ -32,7 +34,6 @@ const Search = props => {
           return { ...book, shelf: myBooks[i].shelf };
         }
       }
-
       return { ...book, shelf: "none" };
     });
   };
