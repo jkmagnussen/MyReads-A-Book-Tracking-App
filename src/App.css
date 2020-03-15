@@ -10,10 +10,9 @@ body {
 
 body,
 .app {
-  background: rgba(161, 161, 161, 0.027);
+  background-image: url("./Media/brick2.jpg");
   background-size: cover;
-  background-position: center center;
-  background-size: cover;
+  background-position: center;
 }
 
 .profile-image {
@@ -82,10 +81,11 @@ body,
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-size: 0;
   outline: 0;
+  border: 0;
 }
 
 .open-search button:hover {
-  background-color: rgb(0, 102, 0);
+  background-color: rgb(81, 129, 81);
 }
 
 /* search page */
@@ -95,6 +95,7 @@ body,
   width: 100%;
   top: 0;
   left: 0;
+  border: none;
   z-index: 5;
   display: flex;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
@@ -102,7 +103,7 @@ body,
 
 .search-books-input-wrapper {
   flex: 1;
-  background: #e9e;
+  background: rgb(255, 255, 255);
 }
 
 .search-books-bar input {
@@ -118,14 +119,14 @@ body,
   top: 20px;
   left: 15px;
   width: 50px;
-  height: 53px;
+  height: 55px;
   background-image: url("./icons/arrow-back.svg");
-  background-position: center;
   background-repeat: no-repeat;
-  background-size: 28px;
+  background-size: cover;
   font-size: 0;
   border: none;
   outline: none;
+  background-color: rgb(228, 228, 228);
 }
 
 button:active {
@@ -212,4 +213,11 @@ button:active {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  text-align: center;
+  margin: 0 auto;
 }

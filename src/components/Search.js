@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 
 import Book from "./Book";
 
+import Footer from "./Footer.js";
+
 import * as BooksAPI from "../BooksAPI";
 
 const Search = props => {
@@ -72,6 +74,7 @@ const Search = props => {
             ))}
         </ol>
       </div>
+      <Footer />
     </div>
   );
 };

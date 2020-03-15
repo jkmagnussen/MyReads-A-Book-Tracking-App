@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as BooksAPI from "./BooksAPI";
 import "./App.css";
-
+import Footer from "./components/Footer.js";
 import Bookshelf from "./components/Bookshelf";
 
 import { useHistory } from "react-router-dom";
@@ -49,6 +49,7 @@ const App = () => {
           <button onClick={() => history.push("/search")}>Add a book</button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
