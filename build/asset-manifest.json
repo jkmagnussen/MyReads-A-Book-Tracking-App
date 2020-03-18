@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.87f59b88.chunk.css",
+    "main.css": "./static/css/main.f95de8a1.chunk.css",
     "main.js": "./static/js/main.d5f03db9.chunk.js",
     "main.js.map": "./static/js/main.d5f03db9.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.ad201210.js",
@@ -8,19 +8,19 @@
     "static/js/2.8f6f3f2a.chunk.js": "./static/js/2.8f6f3f2a.chunk.js",
     "static/js/2.8f6f3f2a.chunk.js.map": "./static/js/2.8f6f3f2a.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.e525b0f6bf5cbaee7ca0da8cafca4335.js": "./precache-manifest.e525b0f6bf5cbaee7ca0da8cafca4335.js",
+    "precache-manifest.d38fd1fc29ac3a230b0945905ddb6114.js": "./precache-manifest.d38fd1fc29ac3a230b0945905ddb6114.js",
     "service-worker.js": "./service-worker.js",
-    "static/css/main.87f59b88.chunk.css.map": "./static/css/main.87f59b88.chunk.css.map",
+    "static/css/main.f95de8a1.chunk.css.map": "./static/css/main.f95de8a1.chunk.css.map",
     "static/js/2.8f6f3f2a.chunk.js.LICENSE.txt": "./static/js/2.8f6f3f2a.chunk.js.LICENSE.txt",
     "static/media/207-2075695_wooden-shelf-png.png": "./static/media/207-2075695_wooden-shelf-png.8d1924a7.png",
-    "static/media/App.css": "./static/media/brick.6b024dbd.jpg",
+    "static/media/App.css": "./static/media/brick2.8d4c91aa.jpg",
     "static/media/github.png": "./static/media/github.3e54ed15.png",
     "static/media/linkedIn.png": "./static/media/linkedIn.d575bf16.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ad201210.js",
     "static/js/2.8f6f3f2a.chunk.js",
-    "static/css/main.87f59b88.chunk.css",
+    "static/css/main.f95de8a1.chunk.css",
     "static/js/main.d5f03db9.chunk.js"
   ]
 }
