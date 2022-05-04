@@ -8,7 +8,7 @@ To initiate this project:
 
 install all project dependencies with `npm install`.
 
-Then run, `npm start` to display the application.
+Then run, `npm start` to display the application..
 
 ## Directory Hierarchy
 
